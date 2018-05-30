@@ -1,0 +1,284 @@
+{
+    "8": {
+        "id": 8,
+        "name": "南庄",
+        "location": {},
+        "flows": [
+            762,
+            763
+        ],
+        "pumps": {
+            "238": {
+                "id": 238,
+                "name": "二泵1#泵运行状态",
+                "parentId": 8,
+                "scadaId": 238,
+                "type": "CSP"
+            },
+            "239": {
+                "id": 239,
+                "name": "二泵2#泵运行状态",
+                "parentId": 8,
+                "scadaId": 239,
+                "type": "CSP"
+            },
+            "240": {
+                "id": 240,
+                "name": "二泵3#泵运行状态",
+                "parentId": 8,
+                "scadaId": 240,
+                "type": "CSP"
+            },
+            "242": {
+                "id": 242,
+                "name": "二泵4#泵运行状态",
+                "parentId": 8,
+                "scadaId": 242,
+                "type": "CSP"
+            },
+            "243": {
+                "id": 243,
+                "name": "二泵5#泵运行状态",
+                "parentId": 8,
+                "scadaId": 243,
+                "type": "CSP"
+            },
+            "244": {
+                "id": 244,
+                "name": "二泵6#泵运行状态",
+                "parentId": 8,
+                "scadaId": 244,
+                "type": "CSP"
+            }
+        },
+        "pressures": []
+    },
+    "9": {
+        "id": 9,
+        "name": "沙口",
+        "location": {},
+        "flows": [
+            1046
+        ],
+        "pumps": {
+            "170": {
+                "id": 170,
+                "name": "沙口二泵1#泵运行状态",
+                "parentId": 9,
+                "scadaId": 170,
+                "type": "CSP"
+            },
+            "171": {
+                "id": 171,
+                "name": "沙口二泵2#泵运行状态",
+                "parentId": 9,
+                "scadaId": 171,
+                "type": "CSP"
+            },
+            "172": {
+                "id": 172,
+                "name": "沙口二泵3#泵运行状态",
+                "parentId": 9,
+                "scadaId": 172,
+                "type": "CSP"
+            },
+            "173": {
+                "id": 173,
+                "name": "沙口二泵4#泵运行状态",
+                "parentId": 9,
+                "scadaId": 173,
+                "type": "CSP"
+            },
+            "174": {
+                "id": 174,
+                "name": "沙口二泵5#泵运行状态",
+                "parentId": 9,
+                "scadaId": 174,
+                "type": "CSP"
+            },
+            "175": {
+                "id": 175,
+                "name": "沙口二泵6#泵运行状态",
+                "parentId": 9,
+                "scadaId": 175,
+                "type": "CSP"
+            },
+            "231": {
+                "id": 231,
+                "name": "沙口二泵7#泵运行状态",
+                "parentId": 9,
+                "scadaId": 231,
+                "type": "CSP"
+            },
+            "232": {
+                "id": 232,
+                "name": "沙口二泵8#泵运行状态",
+                "parentId": 9,
+                "scadaId": 232,
+                "type": "CSP"
+            },
+            "233": {
+                "id": 233,
+                "name": "沙口二泵9#泵运行状态",
+                "parentId": 9,
+                "scadaId": 233,
+                "type": "CSP"
+            }
+        },
+        "pressures": [
+            912
+        ]
+    },
+    "10": {
+        "id": 10,
+        "name": "石湾水厂二流程",
+        "location": {},
+        "flows": [
+            1083
+        ],
+        "pumps": {
+            "138": {
+                "id": 138,
+                "name": "石湾水厂二流程2#泵",
+                "parentId": 10,
+                "scadaId": 388,
+                "type": "CSP"
+            },
+            "139": {
+                "id": 139,
+                "name": "石湾水厂二流程3#泵",
+                "parentId": 10,
+                "scadaId": 389,
+                "type": "CSP"
+            },
+            "140": {
+                "id": 140,
+                "name": "石湾水厂二流程4#泵",
+                "parentId": 10,
+                "scadaId": 390,
+                "type": "CSP"
+            },
+            "141": {
+                "id": 141,
+                "name": "石湾水厂二流程5#泵",
+                "parentId": 10,
+                "scadaId": 391,
+                "type": "CSP"
+            },
+            "142": {
+                "id": 142,
+                "name": "石湾水厂二流程6#泵",
+                "parentId": 10,
+                "scadaId": 392,
+                "type": "CSP"
+            }
+        },
+        "pressures": [
+            912,
+            911
+        ]
+    },
+    "11": {
+        "id": 11,
+        "name": "石湾水厂三流程",
+        "location": {},
+        "flows": [
+            434
+        ],
+        "pumps": {
+            "143": {
+                "id": 143,
+                "name": "石湾水厂三流程1#泵",
+                "parentId": 11,
+                "scadaId": 102,
+                "type": "CSP"
+            },
+            "144": {
+                "id": 144,
+                "name": "石湾水厂三流程2#泵",
+                "parentId": 11,
+                "scadaId": 103,
+                "type": "CSP"
+            },
+            "145": {
+                "id": 145,
+                "name": "石湾水厂三流程3#泵",
+                "parentId": 11,
+                "scadaId": 104,
+                "type": "CSP"
+            },
+            "146": {
+                "id": 146,
+                "name": "石湾水厂三流程4#泵",
+                "parentId": 11,
+                "scadaId": 105,
+                "type": "CSP"
+            },
+            "147": {
+                "id": 147,
+                "name": "石湾水厂三流程5#泵",
+                "parentId": 11,
+                "scadaId": 106,
+                "type": "CSP"
+            },
+            "148": {
+                "id": 148,
+                "name": "石湾水厂三流程6#泵",
+                "parentId": 11,
+                "scadaId": 107,
+                "type": "CSP"
+            }
+        },
+        "pressures": [
+            1127
+        ]
+    },
+    "12": {
+        "id": 12,
+        "name": "石湾水厂一流程",
+        "location": {},
+        "flows": [
+            566
+        ],
+        "pumps": {
+            "132": {
+                "id": 132,
+                "name": "石湾水厂一流程西1#泵",
+                "parentId": 12,
+                "scadaId": 156,
+                "type": "CSP"
+            },
+            "133": {
+                "id": 133,
+                "name": "石湾水厂一流程西2#泵",
+                "parentId": 12,
+                "scadaId": 157,
+                "type": "CSP"
+            },
+            "134": {
+                "id": 134,
+                "name": "石湾水厂一流程东3#泵",
+                "parentId": 12,
+                "scadaId": 159,
+                "type": "CSP"
+            },
+            "135": {
+                "id": 135,
+                "name": "石湾水厂一流程东4#泵",
+                "parentId": 12,
+                "scadaId": 160,
+                "type": "CSP"
+            },
+            "136": {
+                "id": 136,
+                "name": "石湾水厂一流程东5#泵",
+                "parentId": 12,
+                "scadaId": 161,
+                "type": "CSP"
+            }
+        },
+        "pressures": [
+            911
+        ]
+    }
+}
