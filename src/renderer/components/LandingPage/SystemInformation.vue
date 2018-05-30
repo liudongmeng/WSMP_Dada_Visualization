@@ -45,12 +45,15 @@
     <button v-on:click="add">测试按钮</button>
     <button v-on:click="redis_get">测试RedisClient</button>
     <button v-on:click="post">测试Post</button>
+    <button v-on:click="clearChart">清除曲线</button>
     <div id="chartContainer"></div>
   </div>
 </template>
 
 <script>
-import HighStock from 'highcharts'
+import HighStock from 'highcharts/highstock'
+import './highcharts-zh_CN.js'
+// require('./highcharts-zh_CN.js')
 import _ from 'lodash'
 // import 'highcharts/css/highcharts.css'
 import redis from 'redis'
@@ -68,33 +71,50 @@ export default {
       platform: require('os').platform(),
       vue: require('vue/package.json').version,
       startTime: moment('2017-01-01 00:00:00').format('YYYY-MM-DDThh:mm'),
-      endTime: moment('2017-01-02 00:00:00').format('YYYY-MM-DDThh:mm'),
-      scadaIdList: [],
+      endTime: moment('2019-04-02 00:00:00').format('YYYY-MM-DDThh:mm'),
+      scadaIdList: '911',
       scadaApiUrl: 'http://128.1.10.10:28803/Api/wsmp/v1/scadaQuery/lines',
       chartOptions: {
         chart: {
-          type: 'line'
+          type: 'line',
+          zoomType: 'x',
+          animation: true
         },
-        credits: {
-          enabled: false
+        rangeSelector: {
+          selected: 2
         },
         title: {
-          text: 'Test Chart'
+          text: '曲线查询'
         },
-        colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5'],
+        plotOptions: {
+          series: {
+            showInLegend: true
+          }
+        },
+        tooltip: {
+          split: false,
+          shared: true
+        },
+        // credits: {
+        //   enabled: false
+        // },
+        // title: {
+        //   text: 'Test Chart'
+        // },
+        // colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5'],
         // xAxis: {
         //   categories: ['1号', '2号', '3号', '3号', '3号']
         // },
-        yAxis: {
-          title: {
-            text: '最近七天'
-          }
-        },
-        plotOptions: {
-          column: {
-            colorByPoint: true
-          }
-        },
+        // yAxis: {
+        //   title: {
+        //     text: '查询结果'
+        //   }
+        // },
+        // plotOptions: {
+        //   column: {
+        //     colorByPoint: true
+        //   }
+        // },
         series: []
       },
       chart: null,
@@ -102,7 +122,8 @@ export default {
     }
   },
   mounted() {
-    this.chart = HighStock.chart('chartContainer', this.chartOptions)
+    debugger
+    this.chart = HighStock.stockChart('chartContainer', this.chartOptions)
   },
   methods: {
     add() {
@@ -132,23 +153,44 @@ export default {
       let start = moment(this.startTime).format('YYYY-MM-DDThh:mm:ss')
       let end = moment(this.endTime).format('YYYY-MM-DDThh:mm:ss')
       var condition = {
-        ObjectIds: [911],
+        ObjectIds: _.map(this.scadaIdList.split(','), function(scada) {
+          return Number(scada)
+        }),
         StartTime: start,
         EndTime: end,
         Step: 1
       }
+      condition.ObjectIds = _.map(this.scadaIdList.split(','), function(scada) {
+        return Number(scada)
+      })
       // options.body = condition
       // options.data = condition
       debugger
+      var chart = this.chart
       request.post(
         {
           url: this.scadaApiUrl,
-          data: [condition]
+          json: condition,
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          }
         },
         function(err, resp, c) {
-          debugger
+          // debugger
           if (err) {
             alert(err)
+          } else {
+            _.forEach(resp.body.Data, function(data) {
+              chart.addSeries({
+                type: 'line',
+                name: `#${data[0].Id}`,
+                data: _.map(data, function(d) {
+                  // return { value: d.Values[0], time: d.Time }
+                  return [new Date(d.Time).valueOf(), d.Values[0]]
+                })
+              })
+            })
           }
         }
       )
@@ -165,6 +207,15 @@ export default {
       // req.once('success', function(a, b, c) {
       //   console.log('success:', a, b, c)
       // })
+    },
+    clearChart() {
+      // _.forEach(this.chart.series, function(series) {
+      //   series.remove(true)
+      //   console.log(`清除成功`)
+      // })
+      while (this.chart.series.length > 0) {
+        this.chart.series[0].remove(true)
+      }
     }
   }
 }
